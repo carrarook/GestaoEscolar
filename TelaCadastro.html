@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Alunos</title>
+    <link rel="stylesheet" href="">
 </head>
 <body>
     <div class="Conteudo">
@@ -12,16 +13,16 @@
 </div>
 <div id="dados_alunos">
 
-    <input type="text" placeholder="Nome do Aluno">
-    <input type="text" placeholder="R.A do Aluno">
-    <input type="text" placeholder="Email do Aluno"><br>
-    <button onclick="">+</button>
-
-</div>
-
-</div>
-
+    <input type="text" id="input_nome" placeholder="Nome do Aluno">
+    <input type="text" id="input_ra" placeholder="R.A do Aluno">
+    <input type="text" id="input_email" placeholder="Email do Aluno">
     
     
+    <br><button onclick="adicionaDadosAluno()">Salvar Dados</button>
+
+</div>
+</div>
+
+<script src="assets/js/scriptTelaCadastro.js"></script>
 </body>
 </html>
