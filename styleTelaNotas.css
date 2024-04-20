@@ -1,0 +1,16 @@
+.BotoesNotas {
+    width: 100%;
+}
+#input_nova_nota_prova  {
+    width: 115px;
+}
+#input_nova_nota_AEP {
+    width: 115px;
+}
+
+#input_nova_nota_prova_integrada{
+    width: 132px;
+}
+#input_bimestre {
+    width: 125px;
+}

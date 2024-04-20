@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleTelaNotas.css">
     <title>NOTAS</title>
 </head>
 <body>
@@ -47,17 +48,27 @@
           <td>média3</td>
           <td>PASSOU</td>
         </tr>
-      </table>
-      <input list="Alunos">
+      </table><div class="BotoesNotas">
+      <input list="Alunos" style="width: 15.7%;" placeholder="Nome do Aluno">
 
-    <datalist id="Alunos"> <!-- Mudar para o data list vier do banco de dados (json) -->
+    <datalist id="Alunos"> <!-- Mudar para o data list vier do banco de dados (json) --> <!--ALlteraar para os botes ficarem do mesmo tamanho das tabelas respectivas-->
   <option value="zé da Cacheta">
   <option value="zé dog">
   <option value="zézin">
   
 </datalist> 
-      <input type="text" id="input_nova_nota" placeholder="Digite a nota">
-      <button onclick="adicionaNotaProva()">+</button>
+
+      <input type="text"  id="input_nova_nota_prova" placeholder="Nota da Prova"> 
+      <input type="text" id="input_nova_nota_AEP" placeholder="Nota da AEP"> 
+      <input type="text" id="input_nova_nota_prova_integrada" placeholder="Nota da Prova Integrada">  
+      <input list="bimestre" id="input_bimestre" placeholder="Bimestre"> 
+      <datalist id="bimestre"> 
+        <option value="1">
+        <option value="2">
+            </datalist>
+        </div>
+        <button onclick="adicionaNotas()">Adicionar Notas</button>
+
 
       <script src="scriptTelaNotas.js"></script>
 </body>
