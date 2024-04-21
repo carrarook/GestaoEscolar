@@ -55,7 +55,7 @@ function adicionaDadosAluno() {
 
         enviarInformacao(alunoSalvo)
         }
-
+    }
     
 
    
