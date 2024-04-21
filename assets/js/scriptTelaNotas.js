@@ -1,4 +1,4 @@
-var rows = document.querySelectorAll("table tr:not(:first-child)");
+ var rows = document.querySelectorAll("table tr:not(:first-child)");
 
 rows.forEach(function(row){
     var cells=row.cells;
