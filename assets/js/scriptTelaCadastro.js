@@ -4,17 +4,37 @@ function adicionaDadosAluno() {
     let registroaluno = document.getElementById("input_ra").value;
     let email = document.getElementById("input_email").value;
 
+    // trocar alertas
+    
     switch(false) {
-
-        case (!isNaN(registroaluno)):
-        alert ("Siga as regras:");
+        case (nome.trim() !== ''):
+        alert ("nome vazio");
         break;
 
         case (isNaN(nome)):
-        alert ("gay");
+        alert ("nome numero");
+        break;
+
+        case (registroaluno.trim() !== ''):
+        alert ("ra vazio");
         break;
         
-        
+        case (!isNaN(registroaluno)):
+        alert ("letra ra");
+        break;
+
+        case (email.trim() !== ''):
+        alert ('email vazio');
+        break;
+
+        case (email.includes('@')):
+        alert ('email incorreto');
+        break;
+
+        case (email.includes('.')):
+        alert ('email incorreto');
+        break;
+
         default:
         let aluno = {
             nome: nome,
@@ -35,7 +55,7 @@ function adicionaDadosAluno() {
 
         enviarInformacao(alunoSalvo)
         }
-
+    }
     
 
    
@@ -43,9 +63,9 @@ function adicionaDadosAluno() {
 
 // PARTE DO BRUNIN
 
-function enviarInformacao(aluno){
-    nomeAluno = aluno.nome
-    console.log(aluno.nome);
+function enviarInformacao(aluno) {
+    let AlunoJSON = { nome: aluno.nome , id: aluno.id};
+    console.log(AlunoJSON , "enviarInformação");
     let canal = new BroadcastChannel('canal');
-
+    canal.postMessage(AlunoJSON);
 }
