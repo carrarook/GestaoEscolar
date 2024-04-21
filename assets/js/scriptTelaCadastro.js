@@ -27,10 +27,10 @@ function adicionaDadosAluno() {
         console.log("Dados do aluno salvos");
 
         let dadosSalvos = localStorage.getItem('aluno');
-        let alunoSalvo =  JSON.parse(dadosSalvos);
+        let alunoSalvo = JSON.parse(dadosSalvos);
         console.log(alunoSalvo)
 
-        return alunoSalvo
+        enviarInformacao(alunoSalvo)
         }
 
     
@@ -40,8 +40,9 @@ function adicionaDadosAluno() {
 
 // PARTE DO BRUNIN
 
-
-function enviarInformacao(alunoSalvo){
+function enviarInformacao(aluno){
+    nomeAluno = aluno.nome
+    console.log(aluno.nome);
     let canal = new BroadcastChannel('canal');
 
 }
