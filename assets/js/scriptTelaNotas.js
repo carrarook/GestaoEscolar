@@ -28,14 +28,14 @@ rows.forEach(function(row){
 
 
 function adicionaNotas() {
-    console.log('dex')
-    let inputNotaProva = document.getElementById("input_nova_nota_prova");
+    console.log('TESTE')
+    let inputNotaProva = document.getElementById("input_prova");
     let notaProva = parseFloat(inputNotaProva.value);
 
-    let inputNotaAEP = document.getElementById("input_nova_nota_AEP");
+    let inputNotaAEP = document.getElementById("input_AEP");
     let notaAEP = parseFloat(inputNotaAEP.value);
 
-    let inputNotaProvaIntegrada = document.getElementById("input_nova_nota_prova_integrada");
+    let inputNotaProvaIntegrada = document.getElementById("input_prova_integrada");
     let notaProvaIntegrada = parseFloat(inputNotaProvaIntegrada.value);
 
     let inputBimestre = document.getElementById("input_bimestre");
