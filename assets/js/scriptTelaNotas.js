@@ -34,6 +34,8 @@ canal.onmessage = function(recebido) {
     console.log(AlunoJSON , "ONMESSAGE");
         localStorage.setItem('AlunoJSON', JSON.stringify(AlunoJSON));
         console.log("salva no local storage", AlunoJSON);
+        // Toda vez que um  usuario for cadastrado (na tela de cadastro) ele deve gerar uma nova linha na tabela da tela notas
+        
     }
 
 

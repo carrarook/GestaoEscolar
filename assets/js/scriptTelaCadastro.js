@@ -59,8 +59,6 @@ function adicionaDadosAluno() {
     
 
    
-
-
 // PARTE DO BRUNIN
 
 function enviarInformacao(aluno) {
