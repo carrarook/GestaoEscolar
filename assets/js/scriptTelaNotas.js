@@ -52,8 +52,16 @@ function adicionaNotas() {
                 case (Bimestre !== 1 && Bimestre !== 2):
                     alert("O bimestre só pode ser igual á: 1 ou 2");
                     break;
+
+                    // adicionar case AEP e Prova estiverem erradas
             default:
-                // adicionar as notas
-                break;
-        }
-    }
+            // ALTERAR PQ NAO VAI SER POR BIMESTRE VAI SER POR ALUNO NÉ O ANTA
+            let notasBimestrais = JSON.parse(localStorage.getItem("notasBimestrais")) || {};
+            notasBimestrais[Bimestre] = {
+                notaProva: notaProva,
+                notaProvaIntegrada: notaProvaIntegrada,
+                notaAEP: notaAEP
+            };
+            localStorage.setItem("notasBimestrais", JSON.stringify(notasBimestrais));
+            console.log("Notas Salvas");
+            break;}}

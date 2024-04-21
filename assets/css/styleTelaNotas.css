@@ -1,16 +1,88 @@
-.BotoesNotas {
-    width: 100%;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+table {
+    width: 100%;
+   border-collapse: collapse;   /* Faz com que as bordas "juntem-se" */
+    margin-bottom: 20px;
+}
+
+
+th {
+    text-align: center;
+    background-color: #f2f2f2;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+
+td {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+
+input[type="text"] {
+    padding: 8px;
+    margin-bottom: 10px;
+    width: calc(100% - 16px); 
+    border: 1px solid #ccc;
+}
+
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+
 #input_nova_nota_prova  {
     width: 115px;
+    text-align: center;
 }
 #input_nova_nota_AEP {
     width: 115px;
+    text-align: center;
 }
 
 #input_nova_nota_prova_integrada{
     width: 132px;
+    height: 34px;
+    text-align: center;
 }
 #input_bimestre {
     width: 125px;
+    height: 33px;
+    text-align: center;
+}
+#input_nome {
+    width: 225px;
+    height: 33px;
+    text-align: center;
 }
