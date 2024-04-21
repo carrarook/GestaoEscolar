@@ -62,21 +62,21 @@ button:hover {
 }
 
 
-#input_nova_nota_prova  {
+#input_prova  {
     width: 115px;
     text-align: center;
 }
-#input_nova_nota_AEP {
+#input_AEP {
     width: 115px;
     text-align: center;
 }
 
-#input_nova_nota_prova_integrada{
+#input_prova_integrada{
     width: 132px;
     height: 34px;
     text-align: center;
 }
-#input_nova_nota_prova_integrada::-webkit-input-placeholder {
+#input_prova_integrada::-webkit-input-placeholder {
     font-size:10.4px;
 }
 #input_bimestre {
