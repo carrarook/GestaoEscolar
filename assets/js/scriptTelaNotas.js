@@ -1,3 +1,5 @@
+// Parte do GuLisboa
+ 
  var rows = document.querySelectorAll("table tr:not(:first-child)");
 
 rows.forEach(function(row){
@@ -26,6 +28,7 @@ rows.forEach(function(row){
 
 // Parte do Brunin reiDelas
 
+// RECEBER OS DADOS DE NOME DE ALUNO USANDO BROADCASTCHANNEL
 
 function adicionaNotas() {
     console.log('TESTE')
