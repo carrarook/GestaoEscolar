@@ -28,21 +28,14 @@ rows.forEach(function(row){
 
 // Parte do Brunin reiDelas
 
-// dar um jeito de carregar todas as vezes não só quando atualiza a página
-window.onload = function() {
-    console.log("Teste window onload");
-    carregaDadosCadastro();
-    
-}
-
-function carregaDadosCadastro(){
 let canal = new BroadcastChannel('canal');
 canal.onmessage = function(recebido) {
-    let AlunoIdNome = recebido.data;
-    console.log(AlunoIdNome);
+    let AlunoJSON = recebido.data;
+    console.log(AlunoJSON , "ONMESSAGE");
+        localStorage.setItem('AlunoJSON', JSON.stringify(AlunoJSON));
+        console.log("salva no local storage", AlunoJSON);
+    }
 
-}
-}
 
 function adicionaNotas() {
     
