@@ -32,13 +32,17 @@ function adicionaDadosAluno() {
         let dadosSalvos = localStorage.getItem('aluno');
         let alunoSalvo =  JSON.parse(dadosSalvos);
         console.log(alunoSalvo)
-    }
+        
 
     
 
    
 
-    
-}
 
 // PARTE DO BRUNIN
+
+
+function enviarInformacao(alunoSalvo){
+    let canal = new BroadcastChannel('canal');
+
+}
