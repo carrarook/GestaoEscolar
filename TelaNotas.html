@@ -3,62 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets\css\styleTelaNotas.css">
     <title>NOTAS</title>
 </head>
 <body>
     <h1>NOTAS 2024</h1>
     <table border="1" width: 400px>
-      <tr>
-        <th width="20%">NOME DO ALUNO</th>
-        <th style="width: 10%">PROVA 1°BI</th>
-        <th style="width: 10%">AEP <br>1°BI</th>
-        <th style="width: 10%">PROVA INTEGRADA 1°BI</th>
-        <th style="width: 10%">MÉDIA 1° BIMESTRE</th>
-        <th style="width: 10%">PROVA 2°BI</th>
-        <th style="width: 10%">AEP<br> 2°BI</th>
-        <th style="width: 10%">PROVA INTEGRADA 2°BI</th>
-        <th style="width: 10%">MÉDIA 2° BIMESTRE</th>
-        <th style="width: 10%">MÉDIA SEMESTRAL</th>
-        <th style="width: 10%">STATUS DE APROVAÇÃO</th>
-      </tr>
-      <tr>
-        <td>Aluno Zézin</td>
-        <td>3.5</td>
-        <td>3.5</td>
-        <td>3.5</td>
-        <td></td>
-        <td>10</td>
-        <td>10</td>
-        <td>1.5</td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>Aluno zé da Cacheta</td>
-        <td>1.0</td>
-        <td>1.5</td>
-        <td>1.0</td>
-        <td></td>
-        <td>1.5</td>
-        <td>1.0</td>
-        <td>1.5</td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-    </table>
-      <input list="Alunos">
+        <tr>
+          <th width="20%">NOME DO ALUNO</th>
+          <th style="width: 10%">PROVA 1°BI</th>
+          <th style="width: 10%">AEP <br>1°BI</th>
+          <th style="width: 10%">PROVA INTEGRADA 1°BI</th>
+          <th style="width: 10%">MÉDIA 1° BIMESTRE</th>
+          <th style="width: 10%">PROVA 2°BI</th>
+          <th style="width: 10%">AEP<br> 2°BI</th>
+          <th style="width: 10%">PROVA INTEGRADA 2°BI</th>
+          <th style="width: 10%">MÉDIA 2° BIMESTRE</th>
+          <th style="width: 10%">MÉDIA SEMESTRAL</th>
+          <th style="width: 10%">STATUS DE APROVAÇÃO</th>
+        </tr>
+        <tr>
+          <td>Aluno Zézin</td>
+          <td>3.5</td>
+          <td>3.5</td>
+          <td>3.5</td>
+          <td></td>
+          <td>10</td>
+          <td>10</td>
+          <td>1.5</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Aluno zé da Cacheta</td>
+          <td>1.0</td>
+          <td>1.5</td>
+          <td>1.0</td>
+          <td></td>
+          <td>1.5</td>
+          <td>1.0</td>
+          <td>1.5</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+      <input list="Alunos" id="input_nome" placeholder="Nome do Aluno">
 
-    <datalist id="Alunos"> <!-- Mudar para o data list vier do banco de dados (json) -->
+    <datalist id="Alunos"> <!-- Mudar para o data list vier do banco de dados (json) --> <!--ALlteraar para os botes ficarem do mesmo tamanho das tabelas respectivas-->
   <option value="zé da Cacheta">
   <option value="zé dog">
   <option value="zézin">
   
 </datalist> 
-      <input type="text" id="input_nova_nota" placeholder="Digite a nota">
-      <button onclick="adicionaNotaProva()">+</button>
 
-      <script src="assets/js/scriptTelaNotas.js"></script>
+      <input type="text"  id="input_nova_nota_prova" placeholder="Nota da Prova"> 
+      <input type="text" id="input_nova_nota_AEP" placeholder="Nota da AEP"> 
+      <input type="text" id="input_nova_nota_prova_integrada" placeholder="Nota da Prova Integrada">  
+      <input list="bimestre" id="input_bimestre" placeholder="Bimestre"> 
+      <datalist id="bimestre"> 
+        <option value="1">
+        <option value="2">
+            </datalist>
+        </div>
+        <button onclick="adicionaNotas()">Adicionar Notas</button>
+
+
+      <script src="assets\js\scriptTelaNotas.js"></script>
 </body>
 </html>
