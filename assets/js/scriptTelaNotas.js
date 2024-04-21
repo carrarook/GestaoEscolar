@@ -28,9 +28,24 @@ rows.forEach(function(row){
 
 // Parte do Brunin reiDelas
 
-// RECEBER OS DADOS DE NOME DE ALUNO USANDO BROADCASTCHANNEL
+// dar um jeito de carregar todas as vezes não só quando atualiza a página
+window.onload = function() {
+    console.log("Teste window onload");
+    carregaDadosCadastro();
+    
+}
+
+function carregaDadosCadastro(){
+let canal = new BroadcastChannel('canal');
+canal.onmessage = function(recebido) {
+    let AlunoIdNome = recebido.data;
+    console.log(AlunoIdNome);
+
+}
+}
 
 function adicionaNotas() {
+    
     console.log('TESTE')
     let inputNotaProva = document.getElementById("input_prova");
     let notaProva = parseFloat(inputNotaProva.value);
@@ -68,3 +83,5 @@ function adicionaNotas() {
             localStorage.setItem("notasBimestrais", JSON.stringify(notasBimestrais));
             console.log("Notas Salvas");
             break;}}
+    
+    

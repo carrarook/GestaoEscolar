@@ -64,8 +64,8 @@ function adicionaDadosAluno() {
 // PARTE DO BRUNIN
 
 function enviarInformacao(aluno) {
-    let nomeAluno = aluno.nome;
+    let AlunoIdNome = aluno.nome , aluno.id;
     console.log(nomeAluno , "TESTE NOME");
     let canal = new BroadcastChannel('canal');
-    canal.postMessage(nomeAluno);
+    canal.postMessage(AlunoIdNome);
 }
