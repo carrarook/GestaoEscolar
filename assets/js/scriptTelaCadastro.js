@@ -35,7 +35,7 @@ function adicionaDadosAluno() {
 
         enviarInformacao(alunoSalvo)
         }
-
+    }
     
 
    
@@ -43,9 +43,9 @@ function adicionaDadosAluno() {
 
 // PARTE DO BRUNIN
 
-function enviarInformacao(aluno){
-    nomeAluno = aluno.nome
-    console.log(aluno.nome);
+function enviarInformacao(aluno) {
+    let nomeAluno = aluno.nome;
+    console.log(nomeAluno , "TESTE NOME");
     let canal = new BroadcastChannel('canal');
-
+    canal.postMessage(nomeAluno);
 }
