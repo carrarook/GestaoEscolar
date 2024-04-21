@@ -4,16 +4,16 @@ function adicionaDadosAluno() {
     let registroaluno = document.getElementById("input_ra").value;
     let email = document.getElementById("input_email").value;
 
-    switch(false) {
-        case (isNaN(nome) || !isNaN(registroaluno)):
-        alert ("Siga as regras:");
-        break;
+    // switch(false) {
+    //     case (isNaN(nome) || !isNaN(registroaluno)):
+    //     alert ("Siga as regras:");
+    //     break;
 
-        // case (isNaN(nome)):
-        // break;
+    //     // case (isNaN(nome)):
+    //     // break;
         
         
-        default:
+    //     default:
         let aluno = {
             nome: nome,
             registroaluno: registroaluno,
@@ -30,11 +30,6 @@ function adicionaDadosAluno() {
         let alunoSalvo =  JSON.parse(dadosSalvos);
         console.log(alunoSalvo)
 
-
-
-
-
-
         return alunoSalvo
         }
 
@@ -42,8 +37,6 @@ function adicionaDadosAluno() {
 
    
 
-    
-}
 
 // PARTE DO BRUNIN
 
