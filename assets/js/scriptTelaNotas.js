@@ -53,7 +53,7 @@ function adicionaNotas() {
                     alert("O bimestre só pode ser igual á: 1 ou 2");
                     break;
 
-                    // adicionar case AEP e Prova estiverem erradas
+                    // adicionar case AEP E Prova estiverem erradas
             default:
             // ALTERAR PQ NAO VAI SER POR BIMESTRE VAI SER POR ALUNO NÉ O ANTA
             let notasBimestrais = JSON.parse(localStorage.getItem("notasBimestrais")) || {};
