@@ -28,7 +28,7 @@ rows.forEach(function(row){
 
 // Parte do Brunin reiDelas
 
-let canal = new BroadcastChannel('canal');
+let canal = new BroadcastChannel('canal'); // Pega os valores adquiridos (Nome e id) no "scriptTelaCadastro" e os transforma em JSON aqui
 canal.onmessage = function(recebido) {
     let AlunoJSON = recebido.data;
     console.log(AlunoJSON , "ONMESSAGE");
