@@ -53,7 +53,7 @@ function adicionaDadosAluno() {
 
         let dadosSalvos = localStorage.getItem('alunos');
         let alunoSalvo = JSON.parse(dadosSalvos);
-        console.log(alunoSalvo);
+        console.log(alunosSalvos);
 
         enviarInformacao(alunosSalvos);
         }
@@ -69,7 +69,6 @@ function enviarInformacao(aluno) {
     let canal = new BroadcastChannel('canal');
     canal.postMessage(AlunoJSON);
 }
-
 
 // parte tela notas
 
@@ -100,7 +99,27 @@ function atualizarNome(){
     });
 }
 
+function listarTarefas() {
+    const tabelaNotas = document.getElementById("tabelaNotas");
+    table.innerHTML = ""; // Limpa a tabela antes de renderizar novamente
 
+    nome.forEach((nome, id) => {
+        nome.id = id; // Atualiza os IDs das tarefas
+        criarNome(nome);
+    });
+
+    localStorage.setItem('alunos', JSON.stringify(alunosSalvos));
+}
+
+function criarElemento(nome) {
+    const row = document.createElement("tr");
+    // Adiciona uma classe de estilo para tarefas concluídas
+    //const statusClass = nome.concluida ? "concluida" : "";
+    row.innerHTML = `
+        <td class="${statusClass}">${aluno.nome}</td>
+    `;
+    document.getElementById("tabelaNotas").appendChild(row);
+}
 
 function adicionaNotas() {
     
