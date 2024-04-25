@@ -8,31 +8,31 @@ function adicionaDadosAluno() {
     
     switch(false) {
         case (nome.trim() !== ''):
-        alert ("nome vazio");
+        alert ("Por favor, insira o nome do aluno.");
         break;
 
         case (isNaN(nome)):
-        alert ("nome numero");
+        alert ("O nome do aluno não pode ser conter números.");
         break;
 
         case (registroaluno.trim() !== ''):
-        alert ("ra vazio");
+        alert ("Por favor, insira o R.A do aluno.");
         break;
         
         case (!isNaN(registroaluno)):
-        alert ("letra ra");
+        alert ("O número de R.A não pode conter letras.");
         break;
 
         case (email.trim() !== ''):
-        alert ('email vazio');
+        alert ('Por favor, insira o email do aluno.');
         break;
 
         case (email.includes('@')):
-        alert ('email incorreto');
+        alert ('Por favor, insira um email válido.');
         break;
 
         case (email.includes('.')):
-        alert ('email incorreto');
+        alert ('Por favor, insira um email válido.');
         break;
 
         default:
@@ -42,18 +42,20 @@ function adicionaDadosAluno() {
             email: email,
             id: Date.now(),
         };
-    
-        let informacaoaluno = JSON.stringify(aluno);
-    
-        localStorage.setItem('aluno', informacaoaluno);
 
-        console.log("Dados do aluno salvos");
+        let alunosSalvos = JSON.parse(localStorage.getItem('alunos')) || [];
 
-        let dadosSalvos = localStorage.getItem('aluno');
+        alunosSalvos.push(aluno);
+    
+        localStorage.setItem('alunos', JSON.stringify(alunosSalvos));
+
+        console.log("Dados dos alunos salvos");
+
+        let dadosSalvos = localStorage.getItem('alunos');
         let alunoSalvo = JSON.parse(dadosSalvos);
-        console.log(alunoSalvo)
+        console.log(alunoSalvo);
 
-        enviarInformacao(alunoSalvo)
+        enviarInformacao(alunosSalvos);
         }
     }
     
