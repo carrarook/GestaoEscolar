@@ -30,16 +30,30 @@
 // fazer com que os dados inseridos em alunoJSON, tenham um lugar adicionado na tabela
 
 //fazer um json parse para adicionar aluno
+function adicionarAlunoJSONTabela(alunoJSON) {
+    let aluno = JSON.parse(alunoJSON); // Faz o parsing do JSON recebido para obter o objeto aluno
+    adicionarAlunoNaTabela(aluno);
 
-// Parte do Brunin reiDelas
+    let tabelaCorpo = document.getElementById("tabela-corpo");
+    let novaLinha = tabelaCorpo.insertRow();
+    
+    let celulaNome = novaLinha.insertCell(0);
+    celulaNome.textContent = aluno.nome; // Supondo que o JSON tenha uma propriedade 'nome'
+
+    // Adicione mais células conforme necessário para outros dados do aluno
+
+    // Atualiza a tabela após adicionar o aluno
+    atualizarTabela();
+}
 
 let canal = new BroadcastChannel('canal'); // Pega os valores adquiridos (Nome e id) no "scriptTelaCadastro" e os transforma em JSON aqui
 canal.onmessage = function(recebido) {
-    let AlunoJSON = recebido.data;
-    console.log(AlunoJSON , "ONMESSAGE");
-        localStorage.setItem('AlunoJSON', JSON.stringify(AlunoJSON));
-        console.log("salva no local storage", AlunoJSON);
-        adicionarAlunoNaTabela(aluno);
+    let alunoJSON = recebido.data;
+    console.log(alunoJSON , "ONMESSAGE");
+        localStorage.setItem('AlunoJSON', JSON.stringify(alunoJSON));
+        console.log("salva no local storage", alunoJSON);
+
+    adicionarAlunoJSONTabela(alunoJSON);
     }
 
 function adicionarAlunoNaTabela(aluno) {
@@ -54,7 +68,6 @@ function adicionarAlunoNaTabela(aluno) {
     // Atualiza a tabela após adicionar o aluno
     atualizarTabela();
 }
-    
 
 function adicionaNotas() {
     
