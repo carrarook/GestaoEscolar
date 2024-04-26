@@ -1,3 +1,4 @@
+
 function adicionaDadosAluno() {
 
     let nome = document.getElementById("input_nome").value;
@@ -53,22 +54,14 @@ function adicionaDadosAluno() {
 
         let dadosSalvos = localStorage.getItem('alunos');
         let alunoSalvo = JSON.parse(dadosSalvos);
-        console.log(alunosSalvos);
+        // PARTE DO BRUNIN
+        console.log(alunoSalvo);
+        // console.log("TESTE", alunoSalvo);
+        // console.log(typeof alunoSalvo);
+        // checarAlunoExistente(alunoSalvo);
 
-        enviarInformacao(alunosSalvos);
         }
     }
-    
-
-   
-// PARTE DO BRUNIN
-
-function enviarInformacao(aluno) {
-    let AlunoJSON = { nome: aluno.nome , id: aluno.id};
-    console.log(AlunoJSON , "enviarInformação");
-    let canal = new BroadcastChannel('canal');
-    canal.postMessage(AlunoJSON);
-}
 
 // parte tela notas
 
@@ -99,30 +92,17 @@ function atualizarNome(){
     });
 }
 
-function listarTarefas() {
-    const tabelaNotas = document.getElementById("tabelaNotas");
-    table.innerHTML = ""; // Limpa a tabela antes de renderizar novamente
 
-    nome.forEach((nome, id) => {
-        nome.id = id; // Atualiza os IDs das tarefas
-        criarNome(nome);
-    });
-
-    localStorage.setItem('alunos', JSON.stringify(alunosSalvos));
-}
-
-function criarElemento(nome) {
-    const row = document.createElement("tr");
-    // Adiciona uma classe de estilo para tarefas concluídas
-    //const statusClass = nome.concluida ? "concluida" : "";
-    row.innerHTML = `
-        <td class="${statusClass}">${aluno.nome}</td>
-    `;
-    document.getElementById("tabelaNotas").appendChild(row);
-}
+window.addEventListener("load", (event) => {
+    let selectNomes =  document.getElementById('nomeAlunos');
+    let alunos = JSON.parse(localStorage.getItem('alunos'));
+    for (let i = 0; alunos.length > i ; i++ ) {
+        selectNomes.insertAdjacentHTML('beforeend', `<option>${alunos[i].nome}</option>`);
+    }  
+});
 
 function adicionaNotas() {
-    
+    checarAlunoExistente();
     console.log('TESTE')
     let inputNotaProva = document.getElementById("input_prova");
     let notaProva = parseFloat(inputNotaProva.value);
@@ -160,5 +140,3 @@ function adicionaNotas() {
             localStorage.setItem("notasBimestrais", JSON.stringify(notasBimestrais));
             console.log("Notas Salvas");
             break;}}
-    
-    
