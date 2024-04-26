@@ -67,7 +67,7 @@ function adicionaDadosAluno() {
 console.log("TESTE", alunoSalvo);
 console.log(typeof alunoSalvo);
 checarAlunoExistente(alunoSalvo);
-} }
+
 
 function checarAlunoExistente(alunoSalvo){
 console.log("nome ultimo aluno", alunoSalvo[0].nome);
