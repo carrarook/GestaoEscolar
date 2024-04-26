@@ -54,16 +54,24 @@ function adicionaDadosAluno() {
 
         let dadosSalvos = localStorage.getItem('alunos');
         let alunoSalvo = JSON.parse(dadosSalvos);
-        console.log("TESTE", alunoSalvo);
-        console.log(typeof alunoSalvo);
-        checarAlunoExistente(alunoSalvo);
-    } }
-    
-function checarAlunoExistente(alunoSalvo){
-    console.log("nome ultimo aluno", alunoSalvo[0].nome);
-}
-   
+        console.log(alunoSalvo);
 
+        enviarInformacao(alunosSalvos);
+        }
+    }
+    
+
+   
+// PARTE DO BRUNIN
+
+console.log("TESTE", alunoSalvo);
+console.log(typeof alunoSalvo);
+checarAlunoExistente(alunoSalvo);
+} }
+
+function checarAlunoExistente(alunoSalvo){
+console.log("nome ultimo aluno", alunoSalvo[0].nome);
+}
 
 
 // parte tela notas
@@ -95,13 +103,13 @@ function atualizarNome(){
     });
 }
 
+
 window.addEventListener("load", (event) => {
     let selectNomes =  document.getElementById('nomeAlunos');
     let alunos = JSON.parse(localStorage.getItem('alunos'));
    for (let i = 0; alunos.length > i ; i++ ) {
     selectNomes.insertAdjacentHTML('afterbegin', `<option>${alunos[i].nome}</option>`);
-}
-  });
+}  });
 
 function adicionaNotas() {
     checarAlunoExistente();

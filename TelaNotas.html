@@ -9,7 +9,7 @@
 
 <body>
     <h1>NOTAS 2024</h1>
-    <table border="1" width: 400px>
+    <table border="1" width: 400px id="tabelaNotas">
         <tr>
           <th width="20%">NOME DO ALUNO</th>
           <th style="width: 10%">PROVA 1°BI</th>
@@ -23,39 +23,23 @@
           <th style="width: 10%">MÉDIA SEMESTRAL</th>
           <th style="width: 10%">STATUS DE APROVAÇÃO</th>
         </tr>
-        <tr>
-          <td>Aluno Zézin</td>
-          <td>3.5</td>
-          <td>3.5</td>
-          <td>3.5</td>
-          <td></td>
-          <td>10</td>
-          <td>10</td>
-          <td>1.5</td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td>Aluno zé da Cacheta</td>
-          <td>1.0</td>
-          <td>1.5</td>
-          <td>1.0</td>
-          <td></td>
-          <td>1.5</td>
-          <td>1.0</td>
-          <td>1.5</td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
       </table>
       
+<<<<<<< HEAD
       
       <label for="nomeAlunos"> Nome do Aluno: </label> 
       <select name="nomeAlunos" id="nomeAlunos"> 
            
       </select>
+=======
+      <input list="Alunos" id="input_nome" placeholder="Nome do Aluno">
+
+    <datalist id="Alunos"> <!-- Mudar para o data list vier do banco de dados (json) --> <!--ALlteraar para os botes ficarem do mesmo tamanho das tabelas respectivas-->
+  <option value="zé da Cacheta">
+  <option value="zé dog">
+  <option value="zézin">
+  
+>>>>>>> e7fb543a66a269b5f1c24357940bd27721fbbaa1
 </datalist> 
 
       <input type="text"  id="input_prova" placeholder="Nota da Prova"> 

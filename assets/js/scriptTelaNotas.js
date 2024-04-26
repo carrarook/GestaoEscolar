@@ -26,26 +26,6 @@
     });
 }
 
-// Toda vez que um  usuario for cadastrado (na tela de cadastro) ele deve gerar uma nova linha na tabela da tela notas
-// fazer com que os dados inseridos em alunoJSON, tenham um lugar adicionado na tabela
-
-//fazer um json parse para adicionar aluno
-function adicionarAlunoJSONTabela(alunoJSON) {
-    let aluno = JSON.parse(alunoJSON); // Faz o parsing do JSON recebido para obter o objeto aluno
-    adicionarAlunoNaTabela(aluno);
-
-    let tabelaCorpo = document.getElementById("tabela-corpo");
-    let novaLinha = tabelaCorpo.insertRow();
-    
-    let celulaNome = novaLinha.insertCell(0);
-    celulaNome.textContent = aluno.nome; // Supondo que o JSON tenha uma propriedade 'nome'
-
-    // Adicione mais células conforme necessário para outros dados do aluno
-
-    // Atualiza a tabela após adicionar o aluno
-    atualizarTabela();
-}
-
 let canal = new BroadcastChannel('canal'); // Pega os valores adquiridos (Nome e id) no "scriptTelaCadastro" e os transforma em JSON aqui
 canal.onmessage = function(recebido) {
     let alunoJSON = recebido.data;
@@ -55,19 +35,6 @@ canal.onmessage = function(recebido) {
 
     adicionarAlunoJSONTabela(alunoJSON);
     }
-
-function adicionarAlunoNaTabela(aluno) {
-    let tabelaCorpo = document.getElementById("tabela-corpo");
-    let novaLinha = tabelaCorpo.insertRow();
-    console.log("TESTE");
-    let celulaNome = novaLinha.insertCell(0);
-    celulaNome.textContent = aluno.nome; // Supondo que o JSON tenha uma propriedade 'nome'
-    
-    // Adicione mais células conforme necessário para outros dados do aluno
-    
-    // Atualiza a tabela após adicionar o aluno
-    atualizarTabela();
-}
 
 function adicionaNotas() {
     
