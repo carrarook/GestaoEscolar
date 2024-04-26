@@ -56,12 +56,8 @@ function adicionaDadosAluno() {
         let alunoSalvo = JSON.parse(dadosSalvos);
         console.log(alunoSalvo);
 
-        enviarInformacao(alunosSalvos);
         }
     }
-    
-
-   
 // PARTE DO BRUNIN
 
 console.log("TESTE", alunoSalvo);
@@ -105,6 +101,7 @@ function atualizarNome(){
 
 
 window.addEventListener("load", (event) => {
+    console.log(alunos.nome);
     let selectNomes =  document.getElementById('nomeAlunos');
     let alunos = JSON.parse(localStorage.getItem('alunos'));
    for (let i = 0; alunos.length > i ; i++ ) {
