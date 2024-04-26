@@ -1,3 +1,4 @@
+
 function adicionaDadosAluno() {
 
     let nome = document.getElementById("input_nome").value;
@@ -53,22 +54,16 @@ function adicionaDadosAluno() {
 
         let dadosSalvos = localStorage.getItem('alunos');
         let alunoSalvo = JSON.parse(dadosSalvos);
-        console.log(alunoSalvo);
-
-        enviarInformacao(alunosSalvos);
-        }
-    }
+        console.log("TESTE", alunoSalvo);
+        console.log(typeof alunoSalvo);
+        checarAlunoExistente(alunoSalvo);
+    } }
     
-
-   
-// PARTE DO BRUNIN
-
-function enviarInformacao(aluno) {
-    let AlunoJSON = { nome: aluno.nome , id: aluno.id};
-    console.log(AlunoJSON , "enviarInformação");
-    let canal = new BroadcastChannel('canal');
-    canal.postMessage(AlunoJSON);
+function checarAlunoExistente(alunoSalvo){
+    console.log("nome ultimo aluno", alunoSalvo[0].nome);
 }
+   
+
 
 
 // parte tela notas
@@ -100,10 +95,16 @@ function atualizarNome(){
     });
 }
 
-
+window.addEventListener("load", (event) => {
+    let selectNomes =  document.getElementById('nomeAlunos');
+    let alunos = JSON.parse(localStorage.getItem('alunos'));
+   for (let i = 0; alunos.length > i ; i++ ) {
+    selectNomes.insertAdjacentHTML('afterbegin', `<option>${alunos[i].nome}</option>`);
+}
+  });
 
 function adicionaNotas() {
-    
+    checarAlunoExistente();
     console.log('TESTE')
     let inputNotaProva = document.getElementById("input_prova");
     let notaProva = parseFloat(inputNotaProva.value);
@@ -141,5 +142,3 @@ function adicionaNotas() {
             localStorage.setItem("notasBimestrais", JSON.stringify(notasBimestrais));
             console.log("Notas Salvas");
             break;}}
-    
-    
