@@ -1,3 +1,49 @@
-*{
-    background-color: #30503A;  
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+}
+
+.Conteudo {
+    width: 55vw;
+    text-align: center;
+}
+
+.container {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(150, 150, 150, 0.7);
+}
+
+.dados_alunos {
+    margin-top: 20px;
+}
+
+.texto input[type="text"] {
+    width: calc(100% - 20px);
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #000000;
+    border-radius: 10px;
+}
+
+.botao {
+    background-color: #551cb1;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+}
+
+.botao:hover {
+    background-color: #43148f;
 }
