@@ -5,7 +5,7 @@ function adicionaDadosAluno() {
     let registroaluno = document.getElementById("input_ra").value;
     let email = document.getElementById("input_email").value;
 
-    // trocar alertas
+    // Gera Alertas caso algo nao seja valido ou esteja Incorreto
     
     switch(false) {
         case (nome.trim() !== ''):
@@ -36,6 +36,8 @@ function adicionaDadosAluno() {
         alert ('Por favor, insira um email válido.');
         break;
 
+        // Cria Classe Alunos e salva no local storage
+
         default:
         let aluno = {
             nome: nome,
@@ -54,9 +56,11 @@ function adicionaDadosAluno() {
 
         let dadosSalvos = localStorage.getItem('alunos');
         let alunoSalvo = JSON.parse(dadosSalvos);
-        // PARTE DO BRUNIN
         console.log(alunoSalvo);
-
+        // console.log("TESTE", alunoSalvo);
+        // console.log(typeof alunoSalvo);
+        // checarAlunoExistente(alunoSalvo);
+        window.location.href = '../../TelaNotas.html';
         }
     }
 
