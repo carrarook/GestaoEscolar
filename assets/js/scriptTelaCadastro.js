@@ -56,9 +56,6 @@ function adicionaDadosAluno() {
         let alunoSalvo = JSON.parse(dadosSalvos);
         // PARTE DO BRUNIN
         console.log(alunoSalvo);
-        // console.log("TESTE", alunoSalvo);
-        // console.log(typeof alunoSalvo);
-        // checarAlunoExistente(alunoSalvo);
 
         }
     }
@@ -103,8 +100,7 @@ window.addEventListener("load", (event) => {
 });
 
 function adicionaNotas() {
-    checarAlunoExistente();
-    console.log('TESTE')
+    
     let inputNotaProva = document.getElementById("input_prova");
     let notaProva = parseFloat(inputNotaProva.value);
 
@@ -117,6 +113,8 @@ function adicionaNotas() {
     let inputBimestre = document.getElementById("input_bimestre");
     let Bimestre = parseFloat(inputBimestre.value);
 
+    let selectNomes =  document.getElementById('nomeAlunos');
+    let nomeAlunoSelecionado = selectNomes.value;
         switch (true) {
             case (isNaN(notaProva) || isNaN(notaAEP) || isNaN(notaProvaIntegrada) || inputNotaProva.value.trim() === "" || notaProva > 8 || notaProva < 0):
                 alert("Por favor, siga as seguintes regras:\n- Apenas caracteres numéricos.\n- A nota da PROVA deve estar entre 0 e 8.\n- Todos os campos devem estar preenchidos corretamente.");
@@ -128,16 +126,56 @@ function adicionaNotas() {
                 case (Bimestre !== 1 && Bimestre !== 2):
                     alert("O bimestre só pode ser igual á: 1 ou 2");
                     break;
-
                     // adicionar case AEP E Prova estiverem erradas
             default:
-            // ALTERAR PQ NAO VAI SER POR BIMESTRE VAI SER POR ALUNO NÉ O ANTA
-            let notasBimestrais = JSON.parse(localStorage.getItem("notasBimestrais")) || {};
-            notasBimestrais[Bimestre] = {
+            let alunos = JSON.parse(localStorage.getItem('alunos'))
+            alunosLenght = alunos.length;
+            let notasAlunos = JSON.parse(localStorage.getItem("notasAlunos")) || {};
+            notasAlunos[alunosLenght] = { //FUNCIONA POR HORA MAS NÃO CONSIGO EDITAR
+                nomeAluno: nomeAlunoSelecionado,
+                Bimestre: Bimestre,
                 notaProva: notaProva,
                 notaProvaIntegrada: notaProvaIntegrada,
                 notaAEP: notaAEP
-            };
-            localStorage.setItem("notasBimestrais", JSON.stringify(notasBimestrais));
-            console.log("Notas Salvas");
+            }; 
+           // console.log(notasAlunos[alunosLenght]);    
+            localStorage.setItem("notasAlunos", JSON.stringify(notasAlunos));
+            console.log(notasAlunos[alunosLenght].nomeAluno);  
+            for (let i = 0; notasAlunos.length > i ; i++ ) {
+            let novaLinha = document.createElement("tr");
+
+            let celulaNome = document.createElement("td");
+
+            celulaNome.textContent = notasAlunos[alunosLenght].nomeAluno;
+            
+            let celulaNotaProva = document.createElement("td");
+
+            celulaNotaProva.textContent = notasAlunos[alunosLenght].notaProva;
+
+            let celulaNotaAEP = document.createElement("td");
+            
+            celulaNotaAEP.textContent = notasAlunos[alunosLenght].notaAEP;
+            
+            let celulaProvaIntegrada = document.createElement("td");
+
+            celulaNotaProvaIntegrada.textContent = notasAlunos[alunosLenght].notaProvaIntegrada;
+
+            novaLinha.appendChild(celulaNome);
+            novaLinha.appendChild(celulaNotaProva);
+            novaLinha.appendChild(celulaNotaAEP);
+            novaLinha.appendChild(celulaNotaProvaIntegrada);
+            
+            tabela.appendChild(novaLinha);
+            }
+            
             break;}}
+
+// function adicionaDadosTabela() {
+//     dadosAlunos = JSON.parse(localStorage.getItem("notasAlunos"));
+//     console.log(dadosAlunos[n]);
+//     for (let i = 0; dadosAlunos.length > i ; i++ ) {
+//         let novaLinha = document.createElement("tr");
+//         let celulaNome = document.createElement("td");
+//         celulaNome.textContent = dadosAlunos[nomeAlunoSelecionado]
+//     }
+// }
