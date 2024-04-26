@@ -1,26 +1,19 @@
+//Carregamento dos Alunos cadastrados e inserção na tela alunos
+window.addEventListener("load", function() {
+    let alunosSalvos = JSON.parse(localStorage.getItem('alunos')) || [];
+    let alunosBody = document.getElementById('alunosinserir');
 
-function carregarDadosAlunos() {
-    if (localStorage.getItem('aluno')) {
-        let dadosSalvos = localStorage.getItem('aluno');
-        let alunoSalvo = JSON.parse(dadosSalvos);
-
-        let tabelaAlunos = document.getElementById('tabela_alunos');
-
-        let novaLinha = document.createElement('tr');
-        novaLinha.innerHTML = `
-            <td>${alunoSalvo.nome}</td>
-            <td>${alunoSalvo.registroaluno}</td>
-            <td>${alunoSalvo.email}</td>
+    alunosSalvos.forEach(function(aluno) {
+        let alunoRow = `
+            <tr>
+                <td>${aluno.nome}</td>
+                <td>${aluno.registroaluno}</td>
+                <td>${aluno.email}</td>
+            </tr>
         `;
-        tabelaAlunos.appendChild(novaLinha);
-    } else {
-        console.log("Nenhum dado de aluno encontrado no localStorage.");
-    }
-}
-
-window.onload = function() {
-    carregarDadosAlunos();
-};
+        alunosBody.insertAdjacentHTML('beforeend', alunoRow);
+    });
+});
 
 function adicionaNotas() {
     
