@@ -68,7 +68,7 @@ function adicionaDadosAluno() {
     }
 
 
-// parte tela notas
+// js para a integração com a tela notas
 
 function atualizarNome(){
     let rows = document.querySelectorAll("table tr:not(:first-child)");
@@ -153,7 +153,7 @@ function adicionaNotas() {
             let alunos = JSON.parse(localStorage.getItem('alunos'))
             alunosLenght = alunos.length;
             let notasAlunos = JSON.parse(localStorage.getItem("notasAlunos")) || {};
-            notasAlunos[alunosLenght] = {  //FUNCIONA POR HORA MAS NÃO CONSIGO EDITAR
+            notasAlunos[alunosLenght] = { //FUNCIONA POR HORA MAS NÃO CONSIGO EDITAR
                 nomeAluno: nomeAlunoSelecionado,
                 notaProva: notaProva,
                 notaProvaIntegrada: notaProvaIntegrada,

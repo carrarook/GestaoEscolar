@@ -1,4 +1,4 @@
-// Parte do GuLisboa
+
  function atualizarNome(){
     let rows = document.querySelectorAll("table tr:not(:first-child)");
 
@@ -65,7 +65,7 @@ function adicionaNotas() {
 
                     // adicionar case AEP E Prova estiverem erradas
             default:
-            // ALTERAR PQ NAO VAI SER POR BIMESTRE VAI SER POR ALUNO NÉ O ANTA
+
             let notasBimestrais = JSON.parse(localStorage.getItem("notasBimestrais")) || {};
             notasBimestrais[Bimestre] = {
                 notaProva: notaProva,
