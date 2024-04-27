@@ -144,8 +144,13 @@ function adicionaNotas() {
             }; 
            // console.log(notasAlunos[alunosLenght]);    
             localStorage.setItem("notasAlunos", JSON.stringify(notasAlunos));
-            console.log(notasAlunos[alunosLenght].nomeAluno);  
-            for (let i = 0; notasAlunos.length > i ; i++ ) {
+             
+
+            let tabela = document.getElementById("tabelaNotas");
+            switch(true) { 
+
+            case (notasAlunos[alunosLenght].Bimestre == '1') :
+           
             let novaLinha = document.createElement("tr");
 
             let celulaNome = document.createElement("td");
@@ -160,26 +165,51 @@ function adicionaNotas() {
             
             celulaNotaAEP.textContent = notasAlunos[alunosLenght].notaAEP;
             
-            let celulaProvaIntegrada = document.createElement("td");
+            let celulaNotaProvaIntegrada = document.createElement("td");
 
             celulaNotaProvaIntegrada.textContent = notasAlunos[alunosLenght].notaProvaIntegrada;
+            
+            let celulaMediaPrimeiroBimestre = document.createElement("td");
+
+            celulaMediaPrimeiroBimestre.textContent = (parseFloat(notasAlunos[alunosLenght].notaProva) + parseFloat(notasAlunos[alunosLenght].notaAEP) + parseFloat(notasAlunos[alunosLenght].notaProvaIntegrada));;
 
             novaLinha.appendChild(celulaNome);
             novaLinha.appendChild(celulaNotaProva);
             novaLinha.appendChild(celulaNotaAEP);
             novaLinha.appendChild(celulaNotaProvaIntegrada);
+            novaLinha.appendChild(celulaMediaPrimeiroBimestre);
             
-            tabela.appendChild(novaLinha);
-            }
-            
-            break;}}
+            tabela.appendChild(novaLinha); 
+                break;
+                 case (notasAlunos[alunosLenght].Bimestre == '2'):
 
-// function adicionaDadosTabela() {
-//     dadosAlunos = JSON.parse(localStorage.getItem("notasAlunos"));
-//     console.log(dadosAlunos[n]);
-//     for (let i = 0; dadosAlunos.length > i ; i++ ) {
-//         let novaLinha = document.createElement("tr");
-//         let celulaNome = document.createElement("td");
-//         celulaNome.textContent = dadosAlunos[nomeAlunoSelecionado]
-//     }
-// }
+                    let novaLinha2 = document.createElement("tr");
+
+                    
+                    let celulaNotaProva2 = document.createElement("td");
+        
+                    celulaNotaProva2.textContent = notasAlunos[alunosLenght].notaProva;
+        
+                    let celulaNotaAEP2 = document.createElement("td");
+                    
+                    celulaNotaAEP2.textContent = notasAlunos[alunosLenght].notaAEP;
+                    
+                    let celulaNotaProvaIntegrada2 = document.createElement("td");
+        
+                    celulaNotaProvaIntegrada2.textContent = notasAlunos[alunosLenght].notaProvaIntegrada;
+                    
+                    let celulaMediaSegundoBimestre = document.createElement("td");
+        
+                    celulaMediaSegundoBimestre.textContent = (parseFloat(notasAlunos[alunosLenght].notaProva) + parseFloat(notasAlunos[alunosLenght].notaAEP) + parseFloat(notasAlunos[alunosLenght].notaProvaIntegrada));;
+        
+                    novaLinha2.appendChild(celulaNotaProva2);
+                    novaLinha2.appendChild(celulaNotaAEP2);
+                    novaLinha2.appendChild(celulaNotaProvaIntegrada2);
+                    novaLinha2.appendChild(celulaMediaSegundoBimestre);
+                    
+                    tabela.appendChild(novaLinha); 
+             break;
+
+                 default:
+                    
+            break;}}}
