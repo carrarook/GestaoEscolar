@@ -211,7 +211,7 @@ function adicionaNotas() {
 
             mediaSegundoBimestre = (parseFloat(notasAlunos[alunosLenght].notaProva2) + parseFloat(notasAlunos[alunosLenght].notaAEP2) + parseFloat(notasAlunos[alunosLenght].notaProvaIntegrada2));;
 
-            let mediaAprovacao = mediaPrimeiroBimestre + mediaSegundoBimestre / 2;
+            let mediaAprovacao = (mediaPrimeiroBimestre + mediaSegundoBimestre) / 2;
             
             let statusAprovacao;
             switch (true) {
