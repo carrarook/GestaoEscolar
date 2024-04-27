@@ -53,6 +53,10 @@ function adicionaDadosAluno() {
         localStorage.setItem('alunos', JSON.stringify(alunosSalvos));
 
         console.log("Dados dos alunos salvos");
+        //Essa Função vai limpar os dados inseridos na tabela HTML após os mesmos ja terem sido salvos no local storage.
+        document.getElementById("input_nome").value = '';
+        document.getElementById("input_ra").value = '';
+        document.getElementById("input_email").value = '';
 
         let dadosSalvos = localStorage.getItem('alunos');
         let alunoSalvo = JSON.parse(dadosSalvos);
@@ -60,8 +64,9 @@ function adicionaDadosAluno() {
         // console.log("TESTE", alunoSalvo);
         // console.log(typeof alunoSalvo);
         // checarAlunoExistente(alunoSalvo);
-        window.location.href = '../../TelaNotas.html';
+       // window.location.href = '../../TelaNotas.html';
         }
+
     }
 
 
@@ -93,7 +98,6 @@ function atualizarNome(){
         }
     });
 }
-
 
 window.addEventListener("load", (event) => {
     let selectNomes =  document.getElementById('nomeAlunos');
