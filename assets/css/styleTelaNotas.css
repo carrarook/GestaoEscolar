@@ -1,56 +1,40 @@
-
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;    
+    box-sizing: border-box;
     background-color: #555;
 }
-
 
 body {
     font-family: Arial, sans-serif;
     padding: 20px;
 }
 
-
 h1 {
     text-align: center;
     margin-bottom: 20px;
 }
 
-
 table {
     width: 100%;
-   border-collapse: collapse;   /* Faz com que as bordas "juntem-se" */
+    border-collapse: collapse;
     margin-bottom: 20px;
 }
 
-
-th {
-    text-align: center;
-    background-color: #f2f2f2;
-    padding: 10px;
-    border: 1px solid #ddd;
-}
-
-
-td {
+th, td {
     text-align: center;
     padding: 10px;
     border: 1px solid #ddd;
 }
 
-
-input[type="text"] {
-    padding: 8px;
+input[type="text"], button {
+    padding: 10px;
     margin-bottom: 10px;
-    width: calc(100% - 16px); 
+    width: 100%;
     border: 1px solid #ccc;
 }
 
-
 button {
-    padding: 10px 20px;
     background-color: #551cb1;
     color: #fff;
     border: none;
@@ -62,34 +46,14 @@ button:hover {
     background-color: #43148f;
 }
 
-#input_prova  {
-    width: 115px;
-    text-align: center;
-}
-#input_AEP {
-    width: 115px;
-    text-align: center;
-}
-
-#input_prova_integrada{
-    width: 132px;
-    height: 34px;
-    text-align: center;
-}
-#input_prova_integrada::-webkit-input-placeholder {
-    font-size:10.4px;
-}
-#input_bimestre {
-    width: 125px;
-    height: 33px;
-    text-align: center;
-}
-#input_nome {
-    width: 225px;
-    height: 33px;
+#input_prova,#input_AEP,#input_prova_integrada,#input_bimestre,#input_nome,#input_prova2,#input_AEP2,#input_prova_integrada2 {
+    height: 40px;
     text-align: center;
 }
 
 .inputs {
-        display: flex;
+    display: absolute;
+    justify-content: space-between;
+    width: 15%;
+
 }
