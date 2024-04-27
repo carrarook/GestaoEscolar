@@ -5,6 +5,7 @@ body, html {
     justify-content: center;
     align-items: center;
     background-color: #555;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .conteudo {
@@ -12,10 +13,17 @@ body, html {
     text-align: center;
 }
 
+.titulo {
+    text-align: center;
+    font-size: 50px;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
 .container {
     padding: 20px;
     border-radius: 10px;
-    background-color: rgba(150, 150, 150, 0.7);
+    background-color: #969696b3;
 }
 
 .dados_alunos {

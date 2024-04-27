@@ -1,5 +1,5 @@
 body{
-    background-color: #333;
+    background-color: #555;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
@@ -12,7 +12,7 @@ body{
 }
 
 .container {
-    background-color: #555;
+    background-color: #969696b3;
     padding: 50px;
     border-radius: 10px;
 }
