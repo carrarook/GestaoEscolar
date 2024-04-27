@@ -53,6 +53,7 @@ function adicionaDadosAluno() {
         localStorage.setItem('alunos', JSON.stringify(alunosSalvos));
 
         console.log("Dados dos alunos salvos");
+        alert("Dados dos alunos salvos");
         //Essa Função vai limpar os dados inseridos na tabela HTML após os mesmos ja terem sido salvos no local storage.
         document.getElementById("input_nome").value = '';
         document.getElementById("input_ra").value = '';
