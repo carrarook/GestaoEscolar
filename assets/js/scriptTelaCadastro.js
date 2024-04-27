@@ -116,8 +116,17 @@ function adicionaNotas() {
     let inputNotaProvaIntegrada = document.getElementById("input_prova_integrada");
     let notaProvaIntegrada = parseFloat(inputNotaProvaIntegrada.value);
 
-    let inputBimestre = document.getElementById("input_bimestre");
-    let Bimestre = parseFloat(inputBimestre.value);
+    let inputNotaProva2 = document.getElementById("input_prova2");
+    let notaProva2 = parseFloat(inputNotaProva2.value);
+
+    let inputNotaAEP2 = document.getElementById("input_AEP2");
+    let notaAEP2 = parseFloat(inputNotaAEP2.value);
+
+    let inputNotaProvaIntegrada2 = document.getElementById("input_prova_integrada2");
+    let notaProvaIntegrada2 = parseFloat(inputNotaProvaIntegrada2.value);
+
+    // let inputBimestre = document.getElementById("input_bimestre");
+    // let Bimestre = parseFloat(inputBimestre.value);
 
     let selectNomes =  document.getElementById('nomeAlunos');
     let nomeAlunoSelecionado = selectNomes.value;
@@ -129,29 +138,36 @@ function adicionaNotas() {
                 case ( isNaN(notaAEP) || isNaN(notaProvaIntegrada) || inputNotaProva.value.trim() === "" || notaAEP > 1 || notaAEP < 0 || notaProvaIntegrada > 1 || notaProvaIntegrada < 0 ):
                     alert("Por favor, siga as seguintes regras:\n- Apenas caracteres numéricos. \n A nota deve ser separa por . (ponto).\n- A nota da PROVA INTEGRADA e AEP devem estar entre 0 e 1.\n- Todos os campos devem estar preenchidos corretamente.");
                     break;
-                case (Bimestre !== 1 && Bimestre !== 2):
-                    alert("O bimestre só pode ser igual á: 1 ou 2");
+
+            case (isNaN(notaProva2) || isNaN(notaAEP2) || isNaN(notaProvaIntegrada2) || inputNotaProva2.value.trim() === "" || notaProva2 > 8 || notaProva2 < 0):
+                alert("Por favor, siga as seguintes regras:\n- Apenas caracteres numéricos.\n- A nota da PROVA do SEGUNDO BIMESTRE deve estar entre 0 e 8.\n- Todos os campos devem estar preenchidos corretamente.");
+                break;
+            
+                case ( isNaN(notaAEP2) || isNaN(notaProvaIntegrada2) || inputNotaProva2.value.trim() === "" || notaAEP2 > 1 || notaAEP2 < 0 || notaProvaIntegrada2 > 1 || notaProvaIntegrada2 < 0 ):
+                    alert("Por favor, siga as seguintes regras:\n- Apenas caracteres numéricos. \n A nota deve ser separa por . (ponto).\n- A nota da PROVA INTEGRADA e AEP devem estar entre 0 e 1.\n- Todos os campos devem estar preenchidos corretamente.");
                     break;
+                
+
                     // adicionar case AEP E Prova estiverem erradas
             default:
             let alunos = JSON.parse(localStorage.getItem('alunos'))
             alunosLenght = alunos.length;
             let notasAlunos = JSON.parse(localStorage.getItem("notasAlunos")) || {};
-            notasAlunos[alunosLenght] = {
+            notasAlunos[alunosLenght] = { //FUNCIONA POR HORA MAS NÃO CONSIGO EDITAR
                 nomeAluno: nomeAlunoSelecionado,
-                Bimestre: Bimestre,
                 notaProva: notaProva,
                 notaProvaIntegrada: notaProvaIntegrada,
-                notaAEP: notaAEP
+                notaAEP: notaAEP,
+                notaProva2: notaProva2,
+                notaProvaIntegrada2: notaProvaIntegrada2,
+                notaAEP2: notaAEP2
             }; 
            // console.log(notasAlunos[alunosLenght]);    
             localStorage.setItem("notasAlunos", JSON.stringify(notasAlunos));
              
+            
 
             let tabela = document.getElementById("tabelaNotas");
-            switch(true) { 
-
-            case (notasAlunos[alunosLenght].Bimestre == '1') :
            
             let novaLinha = document.createElement("tr");
 
@@ -175,43 +191,64 @@ function adicionaNotas() {
 
             celulaMediaPrimeiroBimestre.textContent = (parseFloat(notasAlunos[alunosLenght].notaProva) + parseFloat(notasAlunos[alunosLenght].notaAEP) + parseFloat(notasAlunos[alunosLenght].notaProvaIntegrada));;
 
+            celulaNome.textContent = notasAlunos[alunosLenght].nomeAluno;
+            
+            let celulaNotaProva2 = document.createElement("td");
+
+            celulaNotaProva2.textContent = notasAlunos[alunosLenght].notaProva2;
+
+            let celulaNotaAEP2 = document.createElement("td");
+            
+            celulaNotaAEP2.textContent = notasAlunos[alunosLenght].notaAEP;
+            
+            let celulaNotaProvaIntegrada2 = document.createElement("td");
+
+            celulaNotaProvaIntegrada2.textContent = notasAlunos[alunosLenght].notaProvaIntegrada;
+            
+            let celulaMediaPrimeiroBimestre2 = document.createElement("td");
+
+            mediaPrimeiroBimestre = (parseFloat(notasAlunos[alunosLenght].notaProva) + parseFloat(notasAlunos[alunosLenght].notaAEP) + parseFloat(notasAlunos[alunosLenght].notaProvaIntegrada));;
+
+            mediaSegundoBimestre = (parseFloat(notasAlunos[alunosLenght].notaProva2) + parseFloat(notasAlunos[alunosLenght].notaAEP2) + parseFloat(notasAlunos[alunosLenght].notaProvaIntegrada2));;
+
+            let mediaAprovacao = mediaPrimeiroBimestre + mediaSegundoBimestre / 2;
+            
+            let statusAprovacao;
+            switch (true) {
+
+            case(mediaAprovacao >= 6.0):
+                statusAprovacao = "APROVADO";
+                break;
+                case(mediaAprovacao >= 3.0 && mediaAprovacao < 6.0):
+                statusAprovacao = "RECUPERAÇÃO";
+                break;
+                    default:
+                        statusAprovacao = "REPROVADO";
+            }
+
+            celulaMediaPrimeiroBimestre2.textContent = (parseFloat(notasAlunos[alunosLenght].notaProva2) + parseFloat(notasAlunos[alunosLenght].notaAEP2) + parseFloat(notasAlunos[alunosLenght].notaProvaIntegrada2));;
+
+            
+            let celulaMediaSemestre = document.createElement("td");
+
+            celulaMediaSemestre.textContent = mediaAprovacao;
+
+            let celulaStatusAprovacao = document.createElement("td");
+
+            celulaStatusAprovacao.textContent = statusAprovacao;
+
             novaLinha.appendChild(celulaNome);
             novaLinha.appendChild(celulaNotaProva);
             novaLinha.appendChild(celulaNotaAEP);
             novaLinha.appendChild(celulaNotaProvaIntegrada);
             novaLinha.appendChild(celulaMediaPrimeiroBimestre);
-            
+
+            novaLinha.appendChild(celulaNotaProva2);
+            novaLinha.appendChild(celulaNotaAEP2);
+            novaLinha.appendChild(celulaNotaProvaIntegrada2);
+            novaLinha.appendChild(celulaMediaPrimeiroBimestre2);
+            novaLinha.appendChild(celulaMediaSemestre);
+            novaLinha.appendChild(celulaStatusAprovacao);
+
             tabela.appendChild(novaLinha); 
-                break;
-                 case (notasAlunos[alunosLenght].Bimestre == '2'):
-
-                    let novaLinha2 = document.createElement("tr");
-
-                    
-                    let celulaNotaProva2 = document.createElement("td");
-        
-                    celulaNotaProva2.textContent = notasAlunos[alunosLenght].notaProva;
-        
-                    let celulaNotaAEP2 = document.createElement("td");
-                    
-                    celulaNotaAEP2.textContent = notasAlunos[alunosLenght].notaAEP;
-                    
-                    let celulaNotaProvaIntegrada2 = document.createElement("td");
-        
-                    celulaNotaProvaIntegrada2.textContent = notasAlunos[alunosLenght].notaProvaIntegrada;
-                    
-                    let celulaMediaSegundoBimestre = document.createElement("td");
-        
-                    celulaMediaSegundoBimestre.textContent = (parseFloat(notasAlunos[alunosLenght].notaProva) + parseFloat(notasAlunos[alunosLenght].notaAEP) + parseFloat(notasAlunos[alunosLenght].notaProvaIntegrada));;
-        
-                    novaLinha2.appendChild(celulaNotaProva2);
-                    novaLinha2.appendChild(celulaNotaAEP2);
-                    novaLinha2.appendChild(celulaNotaProvaIntegrada2);
-                    novaLinha2.appendChild(celulaMediaSegundoBimestre);
-                    
-                    tabela.appendChild(novaLinha); 
-             break;
-
-                 default:
-                    
-            break;}}}
+              }}
