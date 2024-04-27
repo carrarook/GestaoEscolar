@@ -62,7 +62,6 @@ button:hover {
     background-color: #43148f;
 }
 
-
 #input_prova  {
     width: 115px;
     text-align: center;
@@ -89,4 +88,8 @@ button:hover {
     width: 225px;
     height: 33px;
     text-align: center;
+}
+
+.inputs {
+        display: flex;
 }
