@@ -2,7 +2,8 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box;    
+    background-color: #555;
 }
 
 
@@ -50,7 +51,7 @@ input[type="text"] {
 
 button {
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #551cb1;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -58,7 +59,7 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #43148f;
 }
 
 
