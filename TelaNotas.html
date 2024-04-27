@@ -8,8 +8,11 @@
 </head>
 
 <body>
-  <a href="TelaInicial.html"><button class="botao">Menu Principal</button></a>
+  
+  <a href="TelaInicial.html"> <button class="botao">Menu Principal</button> </a>
+
     <h1>NOTAS 2024</h1>
+    
     <table border="1" width: 400px id="tabelaNotas">
         <tr>
           <th width="20%">NOME DO ALUNO</th>
@@ -24,25 +27,29 @@
           <th style="width: 10%">MÉDIA SEMESTRAL</th>
           <th style="width: 10%">STATUS DE APROVAÇÃO</th>
         </tr>
-      </table>
+    </table>
       
       
       <label for="nomeAlunos"> Nome do Aluno: </label> 
-      <select name="nomeAlunos" id="nomeAlunos"> 
-      </select>
 
-      <input type="text"  id="input_prova" placeholder="Nota da Prova"> 
-      <input type="text" id="input_AEP" placeholder="Nota da AEP"> 
-      <input type="text" id="input_prova_integrada" placeholder="Nota da Prova Integrada">  
-       <input list="bimestre" id="input_bimestre" placeholder="Bimestre"> <!-- Alterar para Radio ou sla oq -->
+      <select name="nomeAlunos" id="nomeAlunos"></select>
+
+      <input type="text"  id="input_prova" placeholder="Nota da Prova">
+
+      <input type="text" id="input_AEP" placeholder="Nota da AEP">
+
+      <input type="text" id="input_prova_integrada" placeholder="Nota da Prova Integrada">
+
+      <input list="bimestre" id="input_bimestre" placeholder="Bimestre">
+       
       <datalist id="bimestre"> 
         <option value="1">
         <option value="2">
-            </datalist>
-        </div>
-        <button onclick="adicionaNotas()">Adicionar Notas</button>
-        
+      </datalist>
+      </div>
 
-      <script src="assets\js\scriptTelaCadastro.js"></script>
+      <button onclick="adicionaNotas()">Adicionar Notas</button>
+  
+<script src="assets\js\scriptTelaCadastro.js"></script>
 </body>
 </html>
