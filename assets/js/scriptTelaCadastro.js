@@ -62,10 +62,7 @@ function adicionaDadosAluno() {
         let dadosSalvos = localStorage.getItem('alunos');
         let alunoSalvo = JSON.parse(dadosSalvos);
         console.log(alunoSalvo);
-        // console.log("TESTE", alunoSalvo);
-        // console.log(typeof alunoSalvo);
-        // checarAlunoExistente(alunoSalvo);
-       // window.location.href = '../../TelaNotas.html';
+    
         }
 
     }
