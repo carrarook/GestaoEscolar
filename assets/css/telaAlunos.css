@@ -3,12 +3,12 @@
 }
 body{
     font-family: Arial, sans-serif;
-    padding: 20px;
+    padding-left: 30%;
 }
 .TabelaAlunos {
     width: 100%;
     border-collapse: collapse;
-    align-items: center;
+
 }
 th, td {
     border: 1px solid #ddd;
